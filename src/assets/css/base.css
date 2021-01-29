@@ -1,0 +1,26 @@
+/* 取消内外边距 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* html和body全屏 */
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.el-breadcrumb {
+  margin-bottom: 20px;
+}
+
+.el-table {
+  margin: 15px 0;
+}
