@@ -228,11 +228,7 @@ export default {
       if (confirmResult !== "confirm") {
         this.$message.info("取消删除角色权限");
       }
-      const res = await this.$delete(
-        `roles/${role.id}/rights/${id}`,
-        { roleId: role.id, rightId: id },
-        true
-      );
+      const res = await this.$delete(`roles/${role.id}/rights/${id}`, {}, true);
       if (res.meta.status !== 200) {
         return this.$message.error("删除角色权限失败");
       }
@@ -273,13 +269,8 @@ export default {
 
     //显示编辑角色对话框
     async editRole(roleInfo) {
-      const res = await this.$get(
-        `roles/${roleInfo.id}`,
-        { id: roleInfo.id },
-        true
-      );
+      const res = await this.$get(`roles/${roleInfo.id}`, {}, true);
       this.editRoleForm = res.data;
-      console.log(this.editRoleForm);
       this.editRoleDialogVisible = true;
     },
 
@@ -290,7 +281,6 @@ export default {
         const res = await this.$put(
           `roles/${this.editRoleForm.roleId}`,
           {
-            id: this.editRoleForm.roleId,
             roleName: this.editRoleForm.roleName,
             roleDesc: this.editRoleForm.roleDesc,
           },
@@ -325,11 +315,7 @@ export default {
         return this.$message.info("已取消删除");
       }
 
-      const res = await this.$delete(
-        `roles/${roleInfo.id}`,
-        { id: roleInfo.id },
-        true
-      );
+      const res = await this.$delete(`roles/${roleInfo.id}`, {}, true);
       if (res.meta.status !== 200) {
         this.$message.error("删除角色失败");
       }
@@ -364,7 +350,7 @@ export default {
       ];
       const res = await this.$post(
         `roles/${this.roleId}/rights`,
-        { roleId: this.roleId, rids: chkKeys.join(",") },
+        { rids: chkKeys.join(",") },
         true
       );
       if (!res) {

@@ -12,6 +12,13 @@ Vue.use(ElementUI)
 import ZkTable from 'vue-table-with-tree-grid'
 Vue.use(ZkTable)
 
+//引入富文本vue-quill-editor插件
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+Vue.use(VueQuillEditor);
+
 //配置axios请求
 Vue.prototype.$get = get;
 Vue.prototype.$post = post;

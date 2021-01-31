@@ -389,7 +389,7 @@ export default {
     async sureEditRole() {
       const res = await this.$put(
         `users/${this.userInfo.id}/role`,
-        { id: this.userInfo.id, rid: this.rid },
+        { rid: this.rid },
         true
       );
       console.log(res);
